@@ -63,7 +63,7 @@ To run the application locally on your machine, follow these steps:
 
 ---
 
-## 🛠 Built With
+## Built With
 
 *   **[Flutter](https://flutter.dev/)** - UI Toolkit for creating natively compiled applications.
 *   **[Dart](https://dart.dev/)** - Client-optimized programming language for rapid apps on any platform.

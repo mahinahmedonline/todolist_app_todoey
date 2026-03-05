@@ -1,34 +1,73 @@
 # Todoey
 
-A simple and elegant Todo list application built with Flutter, focused on managing daily tasks efficiently. 
+**Todoey** is a simple, beautiful, and intuitive to-do list application built using modern Flutter principles. It primarily focuses on managing application state cleanly and efficiently across an app using the `provider` package.
 
-This project demonstrates strong state management practices and provides a solid foundation for implementing comprehensive Software Quality Assurance (SQA) practices.
+---
 
-## App Features
+## Features
 
-- **Add Tasks:** Easily add new tasks to your list.
-- **Toggle Status:** Mark tasks as completed or incomplete with a simple checkbox toggle.
-- **Delete Tasks:** Remove tasks you no longer need.
-- **State Management:** Utilizes the `provider` package for robust and scalable state management across screens.
+*   **Add Tasks:** Quickly add new to-do items using an elegant sliding bottom sheet interface.
+*   **Toggle State:** Mark tasks as complete or incomplete, accompanied by dynamic UI updates (strikethrough text).
+*   **Delete Tasks:** Remove items from your task list seamlessly using a "long press" interaction.
+*   **State Management:** Extensively utilizes `ChangeNotifierProvider` to cleanly separate UI presentation from business logic, making the codebase highly scalable and maintainable.
+*   **Responsive UI:** Built with Flutter's Material Design widgets for a cohesive and native-feeling user experience on both iOS and Android platforms.
 
-## Technical Details
+---
 
-- **Framework:** Flutter (Dart)
-- **State Management:** Provider Architecture (`ChangeNotifier`, `ChangeNotifierProvider`)
-- **Key Flutter Widgets used:** `ListView`, `ListTile`, `FloatingActionButton`, `BottomSheet`
+## Architecture & File Structure
 
-## Testing & Quality Assurance (SQA) Focus
+The project has been refactored or structured from avoiding passing callbacks down the widget tree endlessly (prop drilling), utilizing Provider instead:
 
-This project is structured to support rigorous automated testing at various levels:
+```text
+lib/
+ ├── main.dart             # Application root, initializes the ChangeNotifierProvider
+ ├── models/
+ │    ├── task.dart        # Core data model representing a single task
+ │    └── task_data.dart   # The ChangeNotifier class managing the state of the task list globally
+ ├── screens/
+ │    ├── tasks_screen.dart    # Main dashboard UI containing the header and list
+ │    └── add_task_screen.dart # Modal bottom sheet UI for text input
+ └── widgets/
+      ├── tasks_list.dart  # ListView builder consuming Provider to render tiles
+      └── task_tile.dart   # Individual list item UI component
+```
 
-- **Unit Testing:** The `TaskData` model (`ChangeNotifier`) can be unit tested independent of the UI to ensure the core logic for adding, updating, and deleting tasks functions flawlessly.
-- **Widget Testing:** Individual components like the `TaskTile` and the `TasksList` are isolated, making them ideal candidates for Flutter widget tests to verify UI rendering and user interactions (like checking a task).
-- **Integration Testing:** The complete flow of opening the `AddTaskScreen`, typing a task, saving it, and verifying it appears on the `TasksScreen` can be verified using Flutter's integration testing framework.
+---
 
-## Project Structure
+## Getting Started
 
-- `lib/main.dart` - Entry point setting up the Provider.
-- `lib/models/` - Contains data models (`Task`, `TaskData`).
-- `lib/screens/` - Contains app screens (`TasksScreen`, `AddTaskScreen`).
-- `lib/widgets/` - Contains reusable UI widgets (`TasksList`, `TaskTile`).
+To run the application locally on your machine, follow these steps:
 
+### Prerequisites
+*   [Flutter SDK](https://flutter.dev/docs/get-started/install) (Version ^3.10.8 or higher, as defined in `pubspec.yaml`)
+*   An IDE like VS Code, Android Studio, or IntelliJ with the Flutter and Dart plugins installed.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/todoey.git
+    ```
+2.  **Navigate into the directory:**
+    ```bash
+    cd todoey
+    ```
+3.  **Fetch the dependencies:**
+    ```bash
+    flutter pub get
+    ```
+4.  **Run the application (either on an emulator or a connected physical device):**
+    ```bash
+    flutter run
+    ```
+
+---
+
+## 🛠 Built With
+
+*   **[Flutter](https://flutter.dev/)** - UI Toolkit for creating natively compiled applications.
+*   **[Dart](https://dart.dev/)** - Client-optimized programming language for rapid apps on any platform.
+*   **[Provider](https://pub.dev/packages/provider)** - The community-recommended, pragmatic state management solution wrapper over InheritedWidget.
+
+---
+*Created as a demonstration of state management techniques in Flutter.*

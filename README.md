@@ -32,10 +32,3 @@ This project is structured to support rigorous automated testing at various leve
 - `lib/screens/` - Contains app screens (`TasksScreen`, `AddTaskScreen`).
 - `lib/widgets/` - Contains reusable UI widgets (`TasksList`, `TaskTile`).
 
-## Getting Started
-
-1. Ensure you have Flutter installed on your machine.
-2. Clone this repository.
-3. Run `flutter pub get` to install dependencies.
-4. Run the app using `flutter run`.
-5. Execute available tests using `flutter test`.
